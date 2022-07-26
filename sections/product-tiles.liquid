@@ -1,0 +1,49 @@
+<div class="product_tiles_wrapper">
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'tile' %}
+            {% assign productForTile = block.settings.product %}
+            <a href="{{ productForTile.url }}">
+                <div class="product_tile">
+                    <img data-src="{{ productForTile.featured_image | img_url: "610x610" }}" src="{{ productForTile.featured_image | img_url: "610x610" }}"  alt="{{ product.title }}" class="product_tile_image lazyload blur-up" />
+                    <img data-src="{{ productForTile.images[1] | img_url: "610x610" }}" src="{{ productForTile.images[1] | img_url: "610x610" }}"  alt="{{ product.title }}" class="product_tile_image_secodary lazyload blur-up" />
+                    <div class="product_tile_details ">
+                        <h2 class="product_title">
+                            {{ productForTile.title }}
+                        </h2>
+                        <p class="product_description">{{ productForTile.description }}</p>
+                    </div>
+                </div>    
+            </a>
+        
+
+                
+        {% endcase %}
+    {% endfor %}
+
+</div>
+
+
+
+
+
+{% schema %}
+{
+   "name": "Product Tiles",
+   "blocks" : [
+    {
+        "type": "tile",
+        "name" : "Tile",
+        "settings": [
+            {
+                "type" : "product",
+                "id" : "product",
+                "label" : "Choose A Product"
+            }
+       ]
+    }
+   
+   
+   ]
+}
+{% endschema %}
