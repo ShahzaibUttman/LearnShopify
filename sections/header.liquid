@@ -1,25 +1,27 @@
 <div>
-  <div>
-          <img  width="" height="" src="{{ section.settings.main_logo | img_url: '150x' }}" loading="lazy" alt="{{ shop.name }}">
-  </div>
+    <div>
+        <img width="" height="" src="{{ section.settings.main_logo | img_url: '150x' }}" loading="lazy" alt="{{ shop.name }}"/>
+    </div>
 </div>
+
+
+
 
 {% schema %}
 {
-  "name" : "Header",
-  "settings" : [
+  "name": "Header",
+  "settings": [
     {
-      "type" : "image_picker",
-      "id" : "main_logo",
-      "label" : "Upload the store logo"
+      "type": "image_picker",
+      "id": "main_logo",
+      "label": "Upload the store logo"
     },
     {
-      "type" : "link_list",
-      "id" : "main-menu",
-      "label" : "Main Menu",
-      "default" : "main-menu"
+      "type": "link_list",
+      "id": "main-menu",
+      "label": "Main Menu",
+      "default": "main-menu"
     }
   ]
 }
 {% endschema %}
-
