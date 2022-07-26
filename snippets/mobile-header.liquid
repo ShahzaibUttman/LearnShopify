@@ -1,23 +1,23 @@
 <div class="main_header sticky_header{% if sticky == true %}sticky{% endif %} mobile">
-    <div class="header_logo mobile">
-        {% if section.settings.main_logo %}
-            <img  width="" height="" src="{{ section.settings.main_logo | img_url: '150x' }}" loading="lazy" alt="{{ shop.name }}">
-        {% else %}
-          <h1 class="main_logo_heading">NuTexture</h1>
-        {% endif %}
+  <div class="header_logo mobile">
+      {% if section.settings.main_logo %}
+          <img  width="" height="" src="{{ section.settings.main_logo | img_url: '150x' }}" loading="lazy" alt="{{ shop.name }}">
+      {% else %}
+        <h1 class="main_logo_heading">NuTexture</h1>
+      {% endif %}
 
+  </div>
+  <div class="nav_links">
+      <a class="nav_link" href="/cart"> 
+      Cart
+      {%- if cart != empty -%}    
+          {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true">[{{ cart.item_count }}]</span>
+          {%- endif -%}
+      {%- endif -%}
+      </a>
+      <div class="nav_link drawer_button">
+        <a class="">Menu</a>
     </div>
-    <div class="nav_links">
-        <a class="nav_link" href="/cart"> 
-        Cart
-        {%- if cart != empty -%}    
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">[{{ cart.item_count }}]</span>
-            {%- endif -%}
-        {%- endif -%}
-        </a>
-        <div class="nav_link drawer_button">
-          <a class="">Menu</a>
-      </div>
-    </div>
+  </div>
 </div>

@@ -1,11 +1,13 @@
-<div class="main_header sticky desktop">
+<div class="main_header sticky sticky_header desktop">
   <div class="header_logo">
       {% if section.settings.main_logo %}
           <img  width="" height="" src="{{ section.settings.main_logo | img_url: '150x' }}" loading="lazy" alt="{{ shop.name }}">
       {% else %}
         <h1 class="main_logo_heading">NuTexture</h1>
       {% endif %}
+
   </div>
+
   <div class="nav_links">
     <a href="{{ routes.search_url }}" class="nav_link search">Search</a>
     <div class="nav_link menu"> 
@@ -38,7 +40,39 @@
         {%- endif -%}
     {%- endif -%}
     </a>
+
   </div>
+
+
+
+</div>
+
+{% render 'mobile-header', sticky: true %}
+
+
+<div class="mobile_drawer">
+{% render 'mobile-header', sticky: false %}
+<div class="flex flex-col space-between inner_drawer">
+<div class="nav_links drawer">
+  {% for link2 in section.settings.main-menu.links %}
+    <a class="nav_link" href="{{ link2.url }}">{{ link2.title }}</a>
+  {% endfor %}
+    <a class="nav_link" href="/account/login">Log in</a>
+    <a class="nav_link search" href="{{ routes.search_url }}">Search</a>
+</div>
+
+<div class="page_title drawer">
+  {{ template.name }}<br>
+  누텍스처, 더 포뮬러 하우스
+</div>
+
+<div class="bottom_links">
+  <div class="nav_link language">
+    <a class="nav_link language">En</a>
+    <a class="nav_link disabled language">Kr</a>
+  </div>
+  <a class="nav_link">Shipping to the uk</a>
+</div>
 </div>
 
 
@@ -62,3 +96,4 @@
 ]
 }
 {% endschema %}
+
